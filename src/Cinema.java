@@ -54,4 +54,12 @@ public class Cinema {
         }
     }
 
+    public void createSessao(int salaID, int sessao[], int dia, int filmeID){
+        //int expression = (n) -> { if(n.getID() == salaID) return salaID; } 
+        Sala sala = salas.get(salaID);
+        Filme filme = cartaz.get(filmeID);
+        
+        sala.addSessao(sessao, filme, dia);
+    }
+
 }

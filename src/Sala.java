@@ -1,8 +1,9 @@
+import java.util.ArrayList;
+
 public class Sala {
     private int ID;
     public int lotacao;
-    public int sessao;
-    public Object filme;
+    ArrayList<Integer> sessoes = new ArrayList<>();
 
     public Sala(){
 
@@ -22,8 +23,8 @@ public class Sala {
         this.ID = novoID;
     }
 
-    public boolean addSessao(int sessao[], Object filme){
-        
+    public boolean addSessao(int sessao[], Filme filme, int dia){
+
         return true;
     }
 
