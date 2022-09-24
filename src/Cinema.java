@@ -55,11 +55,34 @@ public class Cinema {
     }
 
     public void createSessao(int salaID, Integer[] sessao, int filmeID){
-        //int expression = ((n) -> { if(n.getID() == salaID) return salaID; });
-        Sala sala = salas.get(salaID);
-        Filme filme = cartaz.get(filmeID);
+        Sala sala = salas.get(salaID - 1);
+        Filme filme = cartaz.get(filmeID - 1);
         
         sala.addSessao(sessao, filme);
+    }
+
+    public void vendaIngresso(){
+        int i;
+        System.out.println("Qual filme deseja assistir?\n");
+        for(i = 0; i < cartaz.size(); i++){
+            System.out.println(cartaz.get(i).tituloOriginal + cartaz.get(i).getID());
+        }
+        System.out.print("Digite o ID do filme: ");
+        int filmeID = sc.nextInt();
+
+        System.out.println("Salas que possuem esse filme:\n");
+        salas.forEach( n -> { if( n.sessoes.contains(filmeID)) System.out.println("Lotação: " + n.lotacao + "ID: " + n.getID()); } );
+        System.out.println("Digite o id da sala ");
+        int salaId = sc.nextInt();
+
+        Sala sala = salas.get(salaId - 1);
+        for(i = 0; i < sala.sessoes.size(); i++){
+            System.out.println("inicio: " + sala.sessoes.get(i)[0] + "fim: " + sala.sessoes.get(i)[1] + "ID: " + sala.sessoes.get(i)[3]);
+        }
+
+        System.out.println("Digite o ID da sessão desejada: ");
+        int sessaoId = sc.nextInt();
+        sala.subtrairLotacao(sessaoId);
     }
 
 }

@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Sala {
+    Scanner sc = new Scanner(System.in);
     private int ID;
     public int lotacao;
     ArrayList<Integer[]> sessoes = new ArrayList<>();
@@ -30,9 +32,24 @@ public class Sala {
                 return false;
             }
         }
-        Integer finalSessao = filme.tamanho;
+        Integer duracao = filme.tamanho;
+        int finalSessao = sessao[0] + duracao; 
         sessao[1] = finalSessao;
+        sessao[2] = this.lotacao;
+        sessao[3] = sessoes.size();
+        sessao[4] = filme.getID();
         sessoes.add(sessao);
+        return true;
+    }
+
+    public boolean subtrairLotacao(int sessaoId){
+        int qntIngressos;
+        Integer[] sessao = sessoes.get(sessaoId);
+        System.out.println("Quantidade de ingressos disponíveis: " + sessao[2]);
+        System.out.println("Quantos ingressos deseja comprar?: ");
+        qntIngressos = sc.nextInt();
+        sessao[2] = sessao[2] - qntIngressos;
+        
         return true;
     }
 
