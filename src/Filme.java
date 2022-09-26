@@ -71,10 +71,26 @@ public class Filme {
     }
 
     public void addAtor(){
-        
+        String nome, nacionalidade_ator;
+        System.out.println("Digite o nome do Ator(a): ");
+        nome = sc.nextLine();
+
+        System.out.println("Digite a nacionalidade do Ator(a)");
+        nacionalidade_ator = sc.nextLine();
+
+        atores.add(new Ator(nome, nacionalidade_ator, "Ator(a)"));
     }
 
     public void addDiretor(){
+        String nome, nacionalidade_diretor;
+        System.out.println("Digite o nome do Diretor(a): ");
+        nome = sc.nextLine();
 
+        System.out.println("Digite a nacionalidade do Diretor(a)");
+        nacionalidade_diretor = sc.nextLine();
+
+        diretor.nome = nome;
+        diretor.nacionalidade = nacionalidade_diretor;
+        diretor.descricao = "Diretor(a)";
     }
 }
