@@ -69,4 +69,12 @@ public class Filme {
         }
 
     }
+
+    public void addAtor(){
+        
+    }
+
+    public void addDiretor(){
+
+    }
 }
