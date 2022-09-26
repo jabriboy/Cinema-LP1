@@ -28,15 +28,19 @@ public class Cinema {
         for(i = 0; i < qnt; i++){
             this.qntFilmes++;
             System.out.println("Digite o Titulo Original: ");
-            tituloOriginal = sc.next();
+            tituloOriginal = sc.nextLine();
+
             System.out.println("Digite o Tamanho do filme (em minutos): ");
             tamanho = sc.nextInt();
+
             System.out.println("Digite a Sinopse do filme: ");
-            sinopse = sc.next();
+            sinopse = sc.nextLine();
+
             System.out.println("Digite a Nacionalidade do filme: ");
-            nacionalidade = sc.next();
+            nacionalidade = sc.nextLine();
+
             System.out.println("Digite o Genero do filme: ");
-            genero = sc.next();
+            genero = sc.nextLine();
             
             cartaz.add(new Filme(this.qntFilmes, tituloOriginal, tamanho, sinopse, nacionalidade, genero));
             
@@ -55,6 +59,8 @@ public class Cinema {
     }
 
     public void createSessao(int salaID, Integer[] sessao, int filmeID){
+        System.out.println(salaID);
+        System.out.println(filmeID);
         Sala sala = salas.get(salaID - 1);
         Filme filme = cartaz.get(filmeID - 1);
         
