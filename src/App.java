@@ -37,25 +37,39 @@ public class App {
             }
             else if(opcao == 3){
                 clearScreen();
-                int salaID, filmeID, i;
-                for(i = 0; i<cinema.salas.size(); i++){
-                    System.out.println("Lotacao: " + cinema.salas.get(i).lotacao + " ID: " + cinema.salas.get(i).getID());
+                if(cinema.salas.size() == 0 || cinema.cartaz.size() == 0){
+                    int i;
+                    System.out.println("Não existem sala ou filme disponivel");
+                    System.out.println("[0] voltar ao menu principal");
+                    System.out.print("--->");
+                    i = sc.nextInt();
                 }
-                System.out.println("Digite o ID da sala");
-                salaID = sc.nextInt();
-                clearScreen();
-                for(i = 0; i<cinema.cartaz.size(); i++){
-                    System.out.println("Titulo: " + cinema.cartaz.get(i).tituloOriginal + " ID: " + cinema.cartaz.get(i).getID());
-                }            
-                System.out.println("Digite o ID do filme");
-                filmeID = sc.nextInt();
-                clearScreen();
-                cinema.createSessao(salaID, filmeID);
+                else{
+                    int salaID, filmeID, i;
+                    for(i = 0; i<cinema.salas.size(); i++){
+                        System.out.println("Lotacao: " + cinema.salas.get(i).lotacao + " ID: " + cinema.salas.get(i).getID());
+                    }
+                    System.out.println("Digite o ID da sala");
+                    salaID = sc.nextInt();
+                    clearScreen();
+                    for(i = 0; i<cinema.cartaz.size(); i++){
+                        System.out.println("Titulo: " + cinema.cartaz.get(i).tituloOriginal + " ID: " + cinema.cartaz.get(i).getID());
+                    }            
+                    System.out.println("Digite o ID do filme");
+                    filmeID = sc.nextInt();
+                    clearScreen();
+                    cinema.createSessao(salaID, filmeID);
+                }
+                
             }
             else if(opcao == 4){
                 clearScreen();
                 if(cinema.cartaz.size() == 0 || cinema.salas.size() == 0){
+                    int i;
                     System.out.println("Não possui filme ou sala criada");
+                    System.out.println("[0] voltar ao menu principal");
+                    System.out.print("--->");
+                    i = sc.nextInt();
                 }
                 else{
                     cinema.vendaIngresso();
