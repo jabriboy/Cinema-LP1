@@ -43,14 +43,23 @@ public class Sala {
     }
 
     public boolean subtrairLotacao(int sessaoId){
-        int qntIngressos;
+        int qntIngressos, y;
         Integer[] sessao = sessoes.get(sessaoId);
         System.out.println("Quantidade de ingressos disponíveis: " + sessao[2]);
         System.out.println("Quantos ingressos deseja comprar?: ");
         qntIngressos = sc.nextInt();
-        sessao[2] = sessao[2] - qntIngressos;
-        
-        return true;
+        if(qntIngressos > sessao[2]){
+            System.out.println("Quantidade indisponivel");
+            System.out.println("Digite [0] para sair");
+            System.out.print("--->");
+            y = sc.nextInt();
+            return false;
+        }
+        else{
+            sessao[2] = sessao[2] - qntIngressos;
+            
+            return true;
+        }
     }
 
 }

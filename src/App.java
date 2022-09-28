@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -7,13 +6,7 @@ public class App {
 
         int opcao = 1;
         Cinema cinema = new Cinema("Salvador" , "Bahia");
-        //cinema.addFilmeCartaz(2);
-        //cinema.addSalas(3);
         
-        //cinema.createSessao(1, 1); 
-        //cinema.createSessao(2, 1);
-        //cinema.createSessao(3, 2);
-        //cinema.vendaIngresso();
         while(opcao != 0){
             clearScreen();
             System.out.println("[1] CRIAR FILME");

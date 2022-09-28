@@ -83,7 +83,7 @@ public class Cinema {
     }
 
     public boolean vendaIngresso(){
-        int i, x = 0, salaId;
+        int i, x = 0, salaId, z;
         clearScreen();
         System.out.println("Qual filme deseja assistir?\n");
         for(i = 0; i < cartaz.size(); i++){
@@ -101,7 +101,7 @@ public class Cinema {
             y = sc.nextInt();
             return false;
         }
-        else{    
+        else{
             System.out.println("Salas que possuem esse filme:\n");
             salas.forEach( n -> { if( n.sessoes.get(num(x))[4] == filmeID) System.out.println("Lotação: " + n.lotacao + " ID: " + n.getID()); } );
             System.out.println("Digite o id da sala: ");
@@ -117,6 +117,9 @@ public class Cinema {
         int sessaoId = sc.nextInt();
         sala.subtrairLotacao(sessaoId);
         System.out.println("Poltronas disponiveis: " + sala.sessoes.get(sessaoId)[2]);
+        System.out.println("Digite [0] para sair");
+        System.out.print("--->");
+        z = sc.nextInt();
         return true;
     }
 
